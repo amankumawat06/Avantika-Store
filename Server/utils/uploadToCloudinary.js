@@ -1,4 +1,4 @@
-import cloudinary from "../config/cloudinaryy.js";
+import cloudinary from "../config/cloudinary.js";
 import streamifier from "streamifier";
 
 export const uploadToCloudinary = (
@@ -12,11 +12,11 @@ export const uploadToCloudinary = (
         folder: folderName,
         resource_type: resourceType,
       },
-      (result, error) => {
+      (error, result) => {
         if (result) resolve(result);
         else reject(error);
       },
     );
-    streamifier.createReadStream(fileBuffer.Promise(stream)).pipe(uploadStream);
+    streamifier.createReadStream(fileBuffer).pipe(uploadStream);
   });
 };

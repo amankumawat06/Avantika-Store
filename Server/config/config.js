@@ -14,11 +14,31 @@ if (!process.env.CLOUDINARY_NAME) {
 }
 
 if (!process.env.CLOUDINARY_API_KEY) {
-  throw new Error("CLOUDINARY_API_KEY is not defined in the environment vairable");
+  throw new Error(
+    "CLOUDINARY_API_KEY is not defined in the environment vairable",
+  );
 }
 
 if (!process.env.CLOUDINARY_API_SECRET) {
-  throw new Error("CLOUDINARY_SECRET is not defined in the environment vairable");
+  throw new Error(
+    "CLOUDINARY_SECRET is not defined in the environment vairable",
+  );
+}
+
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET is not defined in the environment vairable");
+}
+
+if (!process.env.NODEMAILER_USER) {
+  throw new Error("NODEMAILER_USER is not defined in the environment vairable");
+}
+
+if (!process.env.NODEMAILER_USER) {
+  throw new Error("NODEMAILER_USER is not defined in the environment vairable");
+}
+
+if (!process.env.ADMIN) {
+  throw new Error("ADMIN is not defined in the environment vairable");
 }
 
 export const config = {
@@ -27,4 +47,8 @@ export const config = {
   cloudinaryName: process.env.CLOUDINARY_NAME,
   cloudinary_apiKey: process.env.CLOUDINARY_API_KEY,
   cloudinary_apiSecret: process.env.CLOUDINARY_API_SECRET,
+  jwt_secret: process.env.JWT_SECRET,
+  user: process.env.NODEMAILER_USER,
+  password: process.env.NODEMAILER_PASS,
+  admin: process.env.ADMIN,
 };
