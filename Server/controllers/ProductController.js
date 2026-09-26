@@ -5,9 +5,9 @@ import cloudinary from "cloudinary";
 
 export const createProduct = async (req, res) => {
   try {
-    const { name, slug, desc, features, stock, inStock } = req.body;
+    const { name, slug, desc, price, features, stock, inStock } = req.body;
 
-    if (!name || !slug || !features || !stock) {
+    if (!name || !slug || !price || !features || !stock) {
       return res.status(400).json({
         message: "Required fields can not be empty!",
       });
@@ -47,6 +47,7 @@ export const createProduct = async (req, res) => {
       name,
       slug,
       desc,
+      price,
       features: parseFeatures,
       stock,
       inStock,
@@ -201,9 +202,10 @@ export const updateProduct = async (req, res) => {
       });
     }
 
-    const { name, slug, desc, features, stock, inStock } = req.body || {};
+    const { name, slug, desc, price, features, stock, inStock } =
+      req.body || {};
 
-    if (!name && !slug && !desc && !features && !stock && !inStock) {
+    if (!name && !slug && !desc && !price && !features && !stock && !inStock) {
       return res.status(200).json({
         message: "You haven't updated anything in this data",
       });
@@ -220,6 +222,7 @@ export const updateProduct = async (req, res) => {
     if (name !== undefined) product.name = name;
     if (slug !== undefined) product.slug = slug;
     if (desc !== undefined) product.desc = desc;
+    if (price !== undefined) product.price = price;
     if (features !== undefined) product.features = JSON.parse(features);
     if (stock !== undefined) product.stock = stock;
     if (inStock !== undefined) product.inStock = inStock;
