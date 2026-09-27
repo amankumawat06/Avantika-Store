@@ -9,10 +9,12 @@ import userRoutes from "../routes/UserRoutes.js";
 import productRoutes from "../routes/ProductRoutes.js";
 import cartRoutes from "../routes/CartRoutes.js";
 import wishlistRoutes from "../routes/WishlistRoutes.js";
+import addressRouters from "../routes/AddressRoutes.js";
 
 app.use("/api/auth", userRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/wishlist", wishlistRoutes);
+app.use("/api/address", addressRouters);
 
 export default app;
