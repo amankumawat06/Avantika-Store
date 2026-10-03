@@ -1,7 +1,12 @@
 import "./App.css";
+import { AppRoutes } from "./routes/AppRoutes";
 
 function App() {
-  return <>Avantika Store</>;
+  return (
+    <>
+      <AppRoutes />
+    </>
+  );
 }
 
 export default App;
