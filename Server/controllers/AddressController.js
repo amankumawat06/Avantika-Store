@@ -69,12 +69,12 @@ export const createAddress = async (req, res) => {
         isDefault,
       });
       await address.save();
-
-      return res.status(201).json({
-        message: address ? "New Address created" : "Address created!",
-        address,
-      });
     }
+
+    return res.status(201).json({
+      message: address ? "New Address created" : "Address created!",
+      address,
+    });
   } catch (err) {
     return res.status(500).json({
       message: "Failed to create address!",
@@ -268,7 +268,7 @@ export const updateAddress = async (req, res) => {
   }
 };
 
-export const deleteAddress = async (req, res) => { 
+export const deleteAddress = async (req, res) => {
   try {
     if (!req.user) {
       return res.status(401).json({

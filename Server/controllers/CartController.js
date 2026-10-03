@@ -41,7 +41,7 @@ export const addToCart = async (req, res) => {
         userId: req.user.id,
         items: [
           {
-            productId,
+            productId: productId,
             quantity: 1,
           },
         ],
@@ -55,7 +55,7 @@ export const addToCart = async (req, res) => {
 
     // check if item already exists in the cart
     const existingItem = cart.items.find((item) => {
-      return item.productId.toString() === productId;
+      return item.productId?.toString() === productId;
     });
 
     // 8. If exists --> increase quantity
@@ -97,6 +97,7 @@ export const getCartProducts = async (req, res) => {
       .populate("userId", "name email")
       .populate("items.productId", "name price -_id");
 
+ 
     if (!cart) {
       return res.status(200).json({
         message: "Your cart is Empty!",

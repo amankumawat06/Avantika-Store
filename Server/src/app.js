@@ -12,6 +12,7 @@ import wishlistRoutes from "../routes/WishlistRoutes.js";
 import addressRouters from "../routes/AddressRoutes.js";
 import couponRoutes from "../routes/CouponRoutes.js";
 import reviewRoutes from "../routes/ReviewRoutes.js";
+import orderRoutes from "../routes/OrderRoutes.js";
 
 app.use("/api/auth", userRoutes);
 app.use("/api/product", productRoutes);
@@ -20,5 +21,6 @@ app.use("/api/wishlist", wishlistRoutes);
 app.use("/api/address", addressRouters);
 app.use("/api/coupon", couponRoutes);
 app.use("/api/review", reviewRoutes);
+app.use("/api/order", orderRoutes);
 
 export default app;

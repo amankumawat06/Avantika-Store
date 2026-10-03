@@ -61,6 +61,7 @@ export const createUser = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role,
         Image: user.image,
         ImageId: user.imageId,
       },
@@ -103,6 +104,7 @@ export const login = async (req, res) => {
     const authToken = jwt.sign(
       {
         id: user._id,
+        role: user.role,
       },
       config.jwt_secret,
       {
@@ -123,6 +125,7 @@ export const login = async (req, res) => {
       user: {
         name: user.name,
         email: user.email,
+        role: user.role,
       },
       authToken,
     });

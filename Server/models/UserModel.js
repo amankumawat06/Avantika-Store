@@ -27,6 +27,11 @@ const UserSchema = mongoose.Schema(
       type: String,
       default: "default_img_public_id",
     },
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
   },
   { timeStamps: true },
 );

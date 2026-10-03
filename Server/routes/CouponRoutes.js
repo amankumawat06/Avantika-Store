@@ -8,11 +8,12 @@ import {
   UpdateCoupon,
 } from "../controllers/CouponController.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
+import { isAdmin } from "../middlewares/Role.js";
 
-router.post("/create", verifyToken, createCoupon);
-router.get("/get", verifyToken, getAllCoupons);
-router.get("/:id", verifyToken, getCouponDetail);
-router.delete("/delete/:id", verifyToken, deleteCoupon);
-router.patch("/update/:id", verifyToken, UpdateCoupon);
+router.post("/create", verifyToken, isAdmin, createCoupon);
+router.get("/get", verifyToken, isAdmin, getAllCoupons);
+router.get("/:id", verifyToken, isAdmin, getCouponDetail);
+router.delete("/delete/:id", verifyToken, isAdmin, deleteCoupon);
+router.patch("/update/:id", verifyToken, isAdmin, UpdateCoupon);
 
 export default router;
